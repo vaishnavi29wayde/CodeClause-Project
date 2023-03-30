@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div id="overlay">
+        <form onsubmit="event.preventDefault(); validateForm()">
+            <h1>Contact us</h1>
+
+            <label for ="name">Name:</label>
+            <input type="text" id="name" placeholder="Your name">
+            <small class="error"></small>
+
+            <label for ="email">Email:</label>
+            <input type="text" id="email" placeholder="Your email">
+            <small class="error"></small>
+
+            <label for ="message">Message:</label>
+            <textarea id="message" placeholder="Your message" rows="6"></textarea>
+            <small class="error"></small>
+
+
+            <div class="center">
+                <input type="text" id="capt" readonly="readonly">
+                <div id="refresh"><img src="refresh.png" width="50px" onclick="cap()"></div>
+                
+               
+            </div>
+            <script type="text/javascript">
+                function cap() {
+        
+                    var alpha=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V'
+                               ,'W','X','Y','Z','1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f','g','h','i',
+                               'j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+        
+                    var a=alpha[Math.floor(Math.random()*62)];
+                    var b=alpha[Math.floor(Math.random()*62)];
+                    var c=alpha[Math.floor(Math.random()*62)];
+                    var d=alpha[Math.floor(Math.random()*62)];
+                    var e=alpha[Math.floor(Math.random()*62)];
+                    var f=alpha[Math.floor(Math.random()*62)];
+        
+                    var sum=a + b + c + d + e + f;
+        
+                    document.getElementById("capt").value=sum;
+                }
+        
+                function validcap() {
+                    var string1 = document.getElementById('capt').value;
+                    var string2 = document.getElementById('textinput').value;
+                    if (string1 == string2){
+                        alert("Captcha is valid");
+                        return true;
+                    }
+                    else {
+                        alert("Please enter a valid captcha");
+                        return false;
+                    }
+                }
+        
+        
+            </script> 
+            <div>
+             <input type="text" id="textinput" text-align="center">
+             <button  onclick="validcap()" >Send Message</button>
+             <p id="success"></p>   
+             <style>
+      
+                button
+                {
+                   position: relative;
+                   left: 140px;
+                   top: 2px;
+                   margin-top:30px;
+                   width:100%;
+                   height:50px;
+                   max-width:200px;
+                   background:linear-gradient(to right,rgb(4, 51, 108),rgb(105, 134, 220));
+                   color:white;
+                   font-size:17px;
+                   cursor:pointer;
+                   border-radius:3px;
+                }  
+            </style>  
+           </div>
+          
+        </form>
+    </div>
+    
+    <script src="script.js"> </script>
+</body> 
+</html>  
